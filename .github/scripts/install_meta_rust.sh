@@ -10,8 +10,3 @@ wget -q -O /tmp/"${DIST_TAR}" http://rust-dists.s3-website.us-west-1.amazonaws.c
 mkdir -p ~/.rustup/toolchains/"${RUSTUP_VERSION}"
 tar -C ~/.rustup/toolchains/"${RUSTUP_VERSION}"/ --strip-components 2 -xvf /tmp/"${DIST_TAR}" rust-1.65.0-x86_64-unknown-linux-gnu/rustc/
 find ~/.rustup/toolchains/"${RUSTUP_VERSION}"/bin/ -exec sh -c "file {} | grep 'dynamically linked' | cut -d':' -f1" \; | xargs -I {} patchelf --set-interpreter /lib64/ld-linux-x86-64.so.2 {}
-rustup default "${RUSTUP_VERSION}"
-
-rustup default
-rustc --version
-cargo --version

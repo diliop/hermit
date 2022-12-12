@@ -24,4 +24,4 @@ jobs:
       run: ./.github/scripts/install_meta_rust.sh 1.64.0
       shell: bash
     - name: Build
-      run: cargo build
+      run: cargo +meta-1.64.0 build
