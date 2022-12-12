@@ -12,7 +12,7 @@ wget -q -O /tmp/"${DIST_TAR}" "${DIST_URL}"
 
 echo "[INFO] untarring ${DIST_TAR} at ${RUSTUP_DIR}"
 mkdir -p "${RUSTUP_DIR}"
-tar -C "${RUSTUP_DIR}" --strip-components 2 -xf /tmp/"${DIST_TAR}" rust-1.65.0-x86_64-unknown-linux-gnu/rustc/
+tar -C "${RUSTUP_DIR}" --strip-components 2 -xvf /tmp/"${DIST_TAR}" rust-1.65.0-x86_64-unknown-linux-gnu/rustc/
 
 echo "[INFO] fixing binaries under ${RUSTUP_DIR}"
 find "${RUSTUP_DIR}"/bin/ -exec sh -c "file {} | grep 'dynamically linked' | cut -d':' -f1" \; | xargs -I {} patchelf --set-interpreter /lib64/ld-linux-x86-64.so.2 {}
