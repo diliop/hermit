@@ -24,4 +24,5 @@ jobs:
       run: ./.github/scripts/install_meta_rust.sh 1.64.0
       shell: bash
     - name: Build
-      run: RUSTC=~/.rustup/toolchains/meta-1.64.0/bin/rustc cargo build
+      # run: RUSTC=~/.rustup/toolchains/meta-1.64.0/bin/rustc cargo build
+      run: cargo +meta-1.64.0 build
