@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Dependencies
-      run: sudo apt-get install -y libunwind-dev wget
+      run: sudo apt-get install -y libunwind-dev
     - name: Install Meta's Rust toolchain
       run: ./.github/scripts/install_meta_rust.sh 1.64.0
       shell: bash
