@@ -10,6 +10,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  RUSTUP_DIST_SERVER: "http://rust-dists.s3-website.us-west-1.amazonaws.com"
 
 jobs:
   build:
