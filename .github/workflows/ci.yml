@@ -20,6 +20,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Dependencies
-      run: sudo apt-get install -y libunwind-dev
+      run: sudo apt-get install -y libunwind-dev patchelf
+    - name: Install Meta's Rust toolchain
+      run: ./.github/scripts/install_meta_rust.sh 1.64.0-meta
+      shell: bash
     - name: Build
-      run: cargo build
+      run: RUSTC=~/.rustup/toolchains/1.64.0-meta/bin/rustc cargo build
