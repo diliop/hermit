@@ -10,7 +10,6 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  RUSTUP_DIST_SERVER: "http://rust-dists.s3-website.us-west-1.amazonaws.com"
 
 jobs:
   build:
@@ -20,9 +19,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Dependencies
-      run: sudo apt-get install -y libunwind-dev patchelf
+      run: sudo apt-get install -y libunwind-dev wget
     - name: Install Meta's Rust toolchain
-      run: ./.github/scripts/install_meta_rust.sh 1.64.0-meta
+      run: ./.github/scripts/install_meta_rust.sh 1.64.0
       shell: bash
     - name: Build
-      run: RUSTC=~/.rustup/toolchains/1.64.0-meta/bin/rustc cargo build
+      run: cargo build
